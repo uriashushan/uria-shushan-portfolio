@@ -112,37 +112,77 @@ export default function App() {
           </section>
 
           {/* About Section */}
+          {/* About Section - Split Layout */}
           <section className="lp-section reveal" id="about" dir="rtl">
-            <h2 className="section-header-vibrant center">
-              <span className="sh-icon">👨‍💻</span> אודות
-            </h2>
-            <div className="about-timeline">
-              <div className="timeline-item glass-card">
-                <div className="tl-icon">🎓</div>
-                <div className="tl-content">
-                  <h3>הנדסאי תוכנה</h3>
-                  <span className="tl-date">המכללה הטכנולוגית תל-חי</span>
-                  <p>לימודי הנדסאות תוכנה הכוללים למידה מעמיקה של שפות תכנות, מבני נתונים, אלגוריתמים ופיתוח פרויקטים תוכנתיים מורכבים.</p>
+            <div className="about-header-split">
+              <span className="ah-subtitle">קצת עליי</span>
+              <h2 className="ah-title">המסע המקצועי שלי</h2>
+              <div className="ah-underline"></div>
+            </div>
+
+            <div className="about-split-container">
+              {/* Left Side: Cards */}
+              <div className="about-cards-side">
+                
+                <div className="about-glass-card">
+                  <div className="agc-icon">🎓</div>
+                  <div className="agc-content">
+                    <h4>השכלה והכשרה טכנולוגית</h4>
+                    <p>הנדסאי תוכנה מהמכללה הטכנולוגית תל-חי, ובוגר תוכנית סייבר יוקרתית מ-HackerU עם רקע חזק באבטחת מידע ופיתוח מאובטח.</p>
+                  </div>
                 </div>
+
+                <div className="about-glass-card">
+                  <div className="agc-icon">🚀</div>
+                  <div className="agc-content">
+                    <h4>הקמת GalilDevs</h4>
+                    <p>כשותף ומייסד, אני מוביל פיתוח של מוצרי תוכנה מתקדמים, החל ממערכות ניהול לעסקים ועד לאפליקציות חכמות ומהירות.</p>
+                  </div>
+                </div>
+
+                <div className="about-glass-card">
+                  <div className="agc-icon">🤖</div>
+                  <div className="agc-content">
+                    <h4>חזון וטכנולוגיות עתיד</h4>
+                    <p>חוקר ומשלב טכנולוגיות עתיד כמו Agentic AI, עם התמקדות בביצועים, אוטומציה וחוויית משתמש חלקה מבוססת 3D.</p>
+                  </div>
+                </div>
+
               </div>
-              <div className="timeline-item glass-card">
-                <div className="tl-icon">🛡️</div>
-                <div className="tl-content">
-                  <h3>בוגר הכשרת סייבר (Cybersecurity Bootcamp)</h3>
-                  <span className="tl-date">HackerU (מאי 2023)</span>
-                  <p>סיום בהצלחה של הכשרה אינטנסיבית באבטחת מידע (480 שעות). הלימודים כללו הגנת רשתות, איתור חולשות ועקרונות אבטחה, הנותנים לי ערך מוסף בפיתוח תוכנה מאובטחת.</p>
-                  <a href={certImg} target="_blank" rel="noopener noreferrer" className="btn-vibrant outline cert-btn">
-                    📜 צפה בתעודת סיום
-                  </a>
+
+              {/* Right Side: Text & Info */}
+              <div className="about-text-side">
+                <p>
+                  היי! אני אוריה, מפתח תוכנה נלהב. מאז שכתבתי את שורת הקוד הראשונה שלי, הבנתי שהיכולת להפוך רעיונות למערכות שעובדות במציאות היא כוח אמיתי. אני אוהב לצלול לטכנולוגיות חדשות ולפתור בעיות מורכבות.
+                </p>
+                <p>
+                  לאורך הדרך שלי, התמחיתי גם בסייבר ואבטחת מידע וגם בפיתוח Web מתקדם. השילוב הזה נתן לי פרספקטיבה ייחודית: איך לכתוב קוד שהוא גם יפהפה ומהיר, אבל קודם כל – מאובטח, יציב ואמין בכל תנאי.
+                </p>
+                <p>
+                  עבורי, פיתוח הוא הרבה מעבר לשורות קוד קרירות. זו אומנות של יצירת חוויות למשתמשים, ומתן פתרונות דיגיטליים אמיתיים שמניעים חברות ועסקים קדימה.
+                </p>
+                
+                <div className="about-info-divider"></div>
+                
+                <div className="about-personal-info">
+                  <div className="api-row">
+                    <span className="api-label">גיל:</span>
+                    <span className="api-value">21</span>
+                  </div>
+                  <div className="api-row">
+                    <span className="api-label">מגורים:</span>
+                    <span className="api-value">קריית שמונה, ישראל</span>
+                  </div>
+                  <div className="api-row">
+                    <span className="api-label">טלפון:</span>
+                    <span className="api-value" style={{ direction: 'ltr' }}>058-533-0035</span>
+                  </div>
+                  <div className="api-row">
+                    <span className="api-label">אימייל:</span>
+                    <span className="api-value">uri8304@gmail.com</span>
+                  </div>
                 </div>
-              </div>
-              <div className="timeline-item glass-card highlight">
-                <div className="tl-icon">💻</div>
-                <div className="tl-content">
-                  <h3>פיתוח פרויקטים וניסיון מעשי</h3>
-                  <span className="tl-date">פרויקטים עצמאיים</span>
-                  <p>מעורב בפיתוח של פרויקטים טכנולוגיים אמיתיים (כגון פלטפורמות כדוגמת GalilDevs ו-Perfume Trades). מתכנן וכותב צד לקוח וצד שרת בסטנדרטים מקצועיים.</p>
-                </div>
+
               </div>
             </div>
           </section>
