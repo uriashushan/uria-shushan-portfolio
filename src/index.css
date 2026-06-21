@@ -125,35 +125,32 @@ body {
   max-width: 450px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  animation: aliveAvatar3D 8s infinite ease-in-out;
+  align-items: flex-end;
 }
 
 .avatar-3d-glow {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 120%; height: 120%; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 60%);
-  filter: blur(40px); z-index: 1; animation: pulseGlow 4s infinite alternate;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.08) 0%, transparent 60%);
+  filter: blur(50px); z-index: 1; animation: pulseGlow 4s infinite alternate;
 }
 
 .avatar-3d-img {
   width: 100%;
   height: auto;
   position: relative; z-index: 2;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.4));
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+  animation: gentleFloat 6s ease-in-out infinite;
 }
 
 @keyframes pulseGlow {
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% { opacity: 0.3; }
+  100% { opacity: 0.7; }
 }
 
-@keyframes aliveAvatar3D {
-  0% { transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateY(0px); }
-  50% { transform: perspective(1000px) rotateY(-10deg) rotateX(-5deg) translateY(-25px); }
-  100% { transform: perspective(1000px) rotateY(10deg) rotateX(5deg) translateY(0px); }
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
 
 @media (max-width: 900px) {
