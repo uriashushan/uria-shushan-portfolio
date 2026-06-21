@@ -49,8 +49,9 @@ body {
 }
 .nav-container {
   width: 100%; max-width: 1200px;
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
 }
+.nav-logo-wrap { justify-self: start; }
 .nav-logo {
   font-family: var(--font-heb); font-size: 20px; font-weight: 800;
   color: #fff; letter-spacing: 1px; transition: color 0.3s;
@@ -58,24 +59,24 @@ body {
 .nav-logo:hover {
   color: var(--neon-cyan);
 }
-.nav-links { display: flex; align-items: center; gap: 32px; font-family: var(--font-heb); }
-.nav-links a {
+.nav-links-center { justify-self: center; display: flex; align-items: center; gap: 32px; font-family: var(--font-heb); }
+.nav-links-center a {
   color: #8b95a8; text-decoration: none; font-weight: 400; font-size: 15px;
   letter-spacing: 0.5px; transition: all 0.3s;
 }
-.nav-links a:hover { color: #fff; }
+.nav-links-center a:hover { color: #fff; }
+
+.nav-actions { justify-self: end; display: flex; gap: 15px; align-items: center; }
 
 .nav-btn-game {
-  background: transparent; border: 1px solid var(--border-glass); color: #a0aec0;
-  padding: 6px 16px; border-radius: 50px; font-weight: 400; cursor: pointer; transition: all 0.3s; font-size: 13px; text-transform: uppercase;
+  background: rgba(255, 107, 0, 0.1); border: 1px solid rgba(255, 107, 0, 0.3);
+  color: #ff8a3d; padding: 6px 18px; border-radius: 50px; font-weight: 600; font-family: var(--font-heb);
+  cursor: pointer; transition: all 0.3s; font-size: 14px; display: flex; align-items: center; gap: 6px;
 }
-.nav-btn-game:hover { color: #fff; border-color: rgba(255,255,255,0.2); }
-
-.nav-btn-contact {
-  background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);
-  color: #fff !important; padding: 6px 20px; border-radius: 50px; transition: all 0.3s;
+.nav-btn-game:hover {
+  background: rgba(255, 107, 0, 0.2); border-color: rgba(255, 107, 0, 0.6);
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.2); color: #ff9d5c; transform: translateY(-1px);
 }
-.nav-btn-contact:hover { background: #fff; color: #000 !important; }
 
 /* ─── BASE LAYOUT ─── */
 .landing-page { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
