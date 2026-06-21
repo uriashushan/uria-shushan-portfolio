@@ -52,13 +52,16 @@ body {
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-logo {
-  font-family: var(--font-eng); font-size: 20px; font-weight: 800;
-  color: #fff; letter-spacing: 1px;
+  font-family: var(--font-heb); font-size: 20px; font-weight: 800;
+  color: #fff; letter-spacing: 1px; transition: color 0.3s;
 }
-.nav-links { display: flex; align-items: center; gap: 32px; font-family: var(--font-eng); }
+.nav-logo:hover {
+  color: var(--neon-cyan);
+}
+.nav-links { display: flex; align-items: center; gap: 32px; font-family: var(--font-heb); }
 .nav-links a {
-  color: #8b95a8; text-decoration: none; font-weight: 400; font-size: 14px;
-  transition: color 0.3s; letter-spacing: 0.5px; text-transform: uppercase;
+  color: #8b95a8; text-decoration: none; font-weight: 400; font-size: 15px;
+  letter-spacing: 0.5px; transition: all 0.3s;
 }
 .nav-links a:hover { color: #fff; }
 

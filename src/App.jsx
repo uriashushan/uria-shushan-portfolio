@@ -63,17 +63,16 @@ export default function App() {
 
       {/* Modern Sticky Navbar */}
       <header className={`modern-nav ${scrolled ? 'scrolled' : ''}`}>
-        <div className="nav-container">
-          <div className="nav-logo">
-            <span className="logo-icon">✨</span>
-            Uria Shushan
-          </div>
+        <div className="nav-container" dir="rtl">
+          <a href="#home" className="nav-logo" onClick={() => { if (activeTab !== 'desktop') setActiveTab('desktop'); }} style={{ textDecoration: 'none' }}>
+            אוריה שושן
+          </a>
           <nav className="nav-links">
-            <a href="#about" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>About</a>
-            <a href="#skills" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>Skills</a>
-            <a href="#projects" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>Projects</a>
-            <button className="nav-btn-game" onClick={() => setActiveTab('3d-game')}>🏀 3D Court</button>
-            <a href="#contact" className="nav-btn-contact">Contact ↗</a>
+            <a href="#about" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>אודות</a>
+            <a href="#skills" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>יכולות</a>
+            <a href="#projects" onClick={(e) => { if (activeTab !== 'desktop') setActiveTab('desktop'); }}>פרויקטים</a>
+            <button className="nav-btn-game" onClick={() => setActiveTab('3d-game')}>🏀 מגרש 3D</button>
+            <a href="#contact" className="nav-btn-contact">צור קשר ↗</a>
           </nav>
         </div>
       </header>
