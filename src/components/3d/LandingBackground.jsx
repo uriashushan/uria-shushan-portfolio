@@ -23,11 +23,7 @@ function ParticleNetwork() {
   }, [particleCount]);
 
   useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    if (pointsRef.current) {
-      pointsRef.current.rotation.y = time * 0.05;
-      pointsRef.current.rotation.x = Math.sin(time * 0.02) * 0.2;
-    }
+    // Background is completely static as requested
   });
 
   return (
@@ -58,10 +54,8 @@ function GlowingCore() {
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
     if (coreRef.current) {
-      coreRef.current.rotation.y = time * 0.1;
-      coreRef.current.rotation.x = time * 0.15;
-      // Gentle pulsing scale
-      const scale = 1 + Math.sin(time) * 0.02;
+      // Very slow, subtle breathing only, no spinning
+      const scale = 1 + Math.sin(time) * 0.01;
       coreRef.current.scale.set(scale, scale, scale);
     }
   });

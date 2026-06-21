@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Basketball3D from './components/3d/Basketball3D';
 import LandingBackground from './components/3d/LandingBackground';
 import avatarImg from './assets/image_0.png';
+import avatarFull from './assets/uria_fullbody.png';
+import certImg from './assets/hackeru_cert.png';
 
 const SKILLS_DATA = {
   tech: [
@@ -81,56 +83,65 @@ export default function App() {
           
           {/* Hero Section with 3D Background */}
           <section className="hero-section" id="home">
+            <div className="particles-overlay"></div>
             <LandingBackground />
-            <div className="hero-content reveal">
-              <div className="hero-avatar-wrapper">
-                <div className="hero-avatar-glow"></div>
-                <img src={avatarImg} alt="Uria Shushan" className="hero-avatar" />
+            <div className="hero-content-split reveal" dir="rtl">
+              <div className="hero-text-side">
+                <h1 className="hero-title-vibrant">אוריה שושן</h1>
+                <h2 className="hero-subtitle-vibrant">הנדסאי תוכנה | מפתח תוכנה</h2>
+                <p className="hero-description">
+                  מפתח תוכנה בעל תשוקה לטכנולוגיה ופתרון בעיות מורכבות. 
+                  מתמקד בכתיבת קוד נקי, יעיל ומאובטח, תוך שימוש בטכנולוגיות מודרניות ליצירת פלטפורמות דיגיטליות איכותיות.
+                </p>
+                <div className="hero-cta-group">
+                  <a href="#projects" className="btn-vibrant primary pulse-animation">
+                    צפה בעבודות שלי
+                  </a>
+                  <a href="#contact" className="btn-vibrant outline">
+                    צור קשר
+                  </a>
+                </div>
               </div>
-              <h1 className="hero-title-vibrant">אוריה שושן</h1>
-              <h2 className="hero-subtitle-vibrant">הנדסאי תוכנה. יזם טכנולוגי. מפתח פול-סטאק.</h2>
-              <p className="hero-description">
-                בונה פלטפורמות דיגיטליות שמשאירות חותם. ממשקי משתמש מטורפים, חוויות תלת-מימד (3D) ואופטימיזציית המרות (CRO) לעסקים שרוצים יותר.
-              </p>
-              <div className="hero-cta-group">
-                <a href="#contact" className="btn-vibrant primary pulse-animation">
-                  בוא נדבר על הפרויקט שלך 🚀
-                </a>
-                <a href="#projects" className="btn-vibrant secondary">
-                  צפה בעבודות
-                </a>
+              <div className="hero-avatar-side" dir="ltr">
+                <div className="avatar-3d-wrapper">
+                  <div className="avatar-3d-glow"></div>
+                  <img src={avatarFull} alt="Uria Full Body Avatar" className="avatar-3d-img" />
+                </div>
               </div>
             </div>
           </section>
 
-          {/* About Me Timeline Section */}
+          {/* About Section */}
           <section className="lp-section reveal" id="about" dir="rtl">
-            <div className="section-header-vibrant">
-              <span className="sh-icon">🔥</span> מי אני?
-            </div>
+            <h2 className="section-header-vibrant center">
+              <span className="sh-icon">👨‍💻</span> אודות
+            </h2>
             <div className="about-timeline">
               <div className="timeline-item glass-card">
                 <div className="tl-icon">🎓</div>
                 <div className="tl-content">
-                  <h3>סטודנט להנדסאות תוכנה</h3>
-                  <span className="tl-date">מכללת תל-חי (שנה ב')</span>
-                  <p>לומד לעומק את יסודות מדעי המחשב, מבני נתונים, אלגוריתמים ופיתוח מערכות מורכבות תוך התנסות פרקטית.</p>
+                  <h3>הנדסאי תוכנה</h3>
+                  <span className="tl-date">המכללה הטכנולוגית תל-חי</span>
+                  <p>לימודי הנדסאות תוכנה הכוללים למידה מעמיקה של שפות תכנות, מבני נתונים, אלגוריתמים ופיתוח פרויקטים תוכנתיים מורכבים.</p>
                 </div>
               </div>
               <div className="timeline-item glass-card">
                 <div className="tl-icon">🛡️</div>
                 <div className="tl-content">
-                  <h3>מנתח סייבר ו-SOC מוסמך</h3>
-                  <span className="tl-date">HackerU</span>
-                  <p>הסמכה מקצועית באבטחת מידע, ניתוח פגיעויות, הגנה על שרתים וחקירת אירועי סייבר מתקדמים.</p>
+                  <h3>בוגר הכשרת סייבר (Cybersecurity Bootcamp)</h3>
+                  <span className="tl-date">HackerU (מאי 2023)</span>
+                  <p>סיום בהצלחה של הכשרה אינטנסיבית באבטחת מידע (480 שעות). הלימודים כללו הגנת רשתות, איתור חולשות ועקרונות אבטחה, הנותנים לי ערך מוסף בפיתוח תוכנה מאובטחת.</p>
+                  <a href={certImg} target="_blank" rel="noopener noreferrer" className="btn-vibrant outline cert-btn">
+                    📜 צפה בתעודת סיום
+                  </a>
                 </div>
               </div>
               <div className="timeline-item glass-card highlight">
-                <div className="tl-icon">💼</div>
+                <div className="tl-icon">💻</div>
                 <div className="tl-content">
-                  <h3>מייסד שותף ויזם</h3>
-                  <span className="tl-date">Galil Devs & Perfume Trades</span>
-                  <p>הקמתי וניהלתי סוכנות לפיתוח אתרים שנותנת פתרונות ללקוחות אמיתיים בצפון, ופלטפורמת איקומרס ייעודית לקהילת הבישום. אני מבין ביזמות, גידול לקוחות ו-CRO מניסיון בשטח.</p>
+                  <h3>פיתוח פרויקטים וניסיון מעשי</h3>
+                  <span className="tl-date">פרויקטים עצמאיים</span>
+                  <p>מעורב בפיתוח של פרויקטים טכנולוגיים אמיתיים (כגון פלטפורמות כדוגמת GalilDevs ו-Perfume Trades). מתכנן וכותב צד לקוח וצד שרת בסטנדרטים מקצועיים.</p>
                 </div>
               </div>
             </div>
@@ -173,35 +184,62 @@ export default function App() {
             </div>
           </section>
 
-          {/* Projects Section */}
+          {/* Projects Section - Original Holographic Design */}
           <section className="lp-section reveal" id="projects" dir="rtl">
             <div className="section-header-vibrant">
-              <span className="sh-icon">🚀</span> פרויקטים נבחרים
+              <span className="sh-icon">🌌</span> הפרויקטים שלי
             </div>
-            <div className="lp-projects-grid">
-              
-              <div className="project-card-vibrant">
-                <div className="pcv-content">
-                  <span className="pcv-badge">Web Agency</span>
-                  <h3>Galil Devs</h3>
-                  <p>סוכנות פיתוח אתרים דינמית המספקת פתרונות דיגיטליים בהתאמה אישית. פיתוח מערכות פול-סטאק ללקוחות אמיתיים ברחבי הצפון עם דגש על עיצוב והמרות.</p>
-                  <a href="https://galildevs.com/" target="_blank" rel="noopener noreferrer" className="btn-vibrant outline">
-                    בקר באתר ↗
+            
+            <div className="holo-projects-container">
+              {/* Featured Project: GalilDevs */}
+              <div className="holo-card featured">
+                <div className="holo-glow"></div>
+                <div className="holo-content">
+                  <div className="holo-badge">הפרויקט הראשי</div>
+                  <h3 className="holo-title">GalilDevs</h3>
+                  <p className="holo-desc">
+                    סוכנות פיתוח פרימיום לבניית מוצרי תוכנה מורכבים. אנו מתמקדים בכתיבת קוד נקי לאפליקציות מהירות, מאובטחות ומרשימות עם ביצועי שיא.
+                  </p>
+                  <div className="holo-tech-stack">
+                    <span>React</span>
+                    <span>Node.js</span>
+                    <span>MongoDB</span>
+                  </div>
+                  <div className="holo-metrics">
+                    <div className="metric">
+                      <span className="m-val">100%</span>
+                      <span className="m-label">קוד נקי</span>
+                    </div>
+                    <div className="metric">
+                      <span className="m-val">99%</span>
+                      <span className="m-label">ביצועים</span>
+                    </div>
+                  </div>
+                  <a href="https://galildevs.com/" target="_blank" rel="noopener noreferrer" className="btn-vibrant primary holo-btn">
+                    ביקור בפלטפורמה ↗
                   </a>
                 </div>
               </div>
 
-              <div className="project-card-vibrant">
-                <div className="pcv-content">
-                  <span className="pcv-badge">E-Commerce</span>
-                  <h3>Perfume Trades</h3>
-                  <p>פלטפורמת מסחר ואיקומרס חדשנית שנבנתה עבור קהילת חובבי הבישום. ניהול מלאי בזמן אמת, אימות משתמשים וממשק חלק ומודרני.</p>
-                  <a href="https://perfume-trades.com/" target="_blank" rel="noopener noreferrer" className="btn-vibrant outline">
-                    בקר באתר ↗
+              {/* Secondary Project: Perfume Trades */}
+              <div className="holo-card">
+                <div className="holo-glow"></div>
+                <div className="holo-content">
+                  <div className="holo-badge">E-Commerce</div>
+                  <h3 className="holo-title">Perfume Trades</h3>
+                  <p className="holo-desc">
+                    פלטפורמת מסחר חברתית ואיקומרס לבשמים. קנייה, מכירה והחלפה באפליקציה מהירה ומאובטחת המותאמת לעומסים וצמיחה מהירה.
+                  </p>
+                  <div className="holo-tech-stack">
+                    <span>Expo</span>
+                    <span>Firebase</span>
+                    <span>React Native</span>
+                  </div>
+                  <a href="https://perfume-trades.com/" target="_blank" rel="noopener noreferrer" className="btn-vibrant outline holo-btn-outline" style={{ marginTop: 'auto' }}>
+                    צפייה באפליקציה ↗
                   </a>
                 </div>
               </div>
-
             </div>
           </section>
 
@@ -209,30 +247,44 @@ export default function App() {
           <section className="lp-section reveal" id="contact" dir="rtl">
             <div className="contact-vibrant-box glass-card">
               <div className="contact-vibrant-info">
-                <h2>מוכן לקחת את העסק שלך לשלב הבא?</h2>
-                <p>אני זמין לפרויקטים חדשים, שיתופי פעולה וייעוץ דיגיטלי. בוא נדבר ונהפוך את הרעיון שלך למציאות מטורפת.</p>
+                <h2>יצירת קשר</h2>
+                <p>אני תמיד שמח להכיר אנשים חדשים, לשמוע על פרויקטים מעניינים או לדון בהזדמנויות תעסוקה.</p>
                 
-                <div className="contact-methods">
-                  <a href="mailto:uri8304@gmail.com" className="cm-item">
-                    <span className="cm-icon">📧</span> uri8304@gmail.com
+                <div className="contact-methods-vertical">
+                  <a href="mailto:uri8304@gmail.com" className="cm-item-vertical">
+                    <span className="cm-icon">📧</span>
+                    <div className="cm-text">
+                      <span className="cm-label">אימייל</span>
+                      <span className="cm-value">uri8304@gmail.com</span>
+                    </div>
                   </a>
-                  <a href="https://github.com/uriashushan" target="_blank" rel="noopener noreferrer" className="cm-item">
-                    <span className="cm-icon">🐙</span> GitHub
-                  </a>
-                  <div className="cm-item">
-                    <span className="cm-icon">📍</span> צפון הארץ, ישראל
+                  
+                  <div className="cm-item-vertical">
+                    <span className="cm-icon">📱</span>
+                    <div className="cm-text">
+                      <span className="cm-label">טלפון נייד</span>
+                      <span className="cm-value">058-533-0035</span>
+                    </div>
                   </div>
+                  
+                  <a href="https://www.linkedin.com/in/uria-shushan-420431263/" target="_blank" rel="noopener noreferrer" className="cm-item-vertical">
+                    <span className="cm-icon">💼</span>
+                    <div className="cm-text">
+                      <span className="cm-label">LinkedIn</span>
+                      <span className="cm-value">Uria Shushan</span>
+                    </div>
+                  </a>
                 </div>
               </div>
               
               <div className="contact-whatsapp-card">
                 <div className="wa-card-content">
-                  <h3>זמין לשיחה מיידית</h3>
-                  <p>רוצה להתייעץ מהר? שלח לי הודעה בוואטסאפ ונדבר על הכל.</p>
+                  <h3>זמין לשיחה בווצאפ</h3>
+                  <p>לקבלת מענה מהיר, אפשר לשלוח לי הודעה ישירות לווצאפ.</p>
                 </div>
                 <a href="https://wa.me/972585330035" target="_blank" rel="noopener noreferrer" className="btn-vibrant whatsapp pulse-animation">
                   <span className="wa-icon">💬</span> 
-                  התחל צ'אט בוואטסאפ
+                  שלח הודעה בווצאפ
                 </a>
               </div>
             </div>
@@ -240,8 +292,12 @@ export default function App() {
 
           <footer className="footer-vibrant" dir="rtl">
             <div className="footer-content">
-              <span className="footer-logo">✨ Uria Shushan</span>
-              <span className="footer-text">נבנה באהבה עם React, Vite & Three.js © {new Date().getFullYear()}</span>
+              <span className="footer-text" style={{ fontSize: '1rem' }}>
+                האתר נבנה ע"י <strong>אוריה שושן</strong>, מפתח תוכנה ואחד ממייסדי <a href="https://galildevs.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--neon-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>GalilDevs</a>
+              </span>
+              <span className="footer-text" style={{ fontSize: '0.8rem', opacity: 0.7, marginTop: '8px' }}>
+                © {new Date().getFullYear()} כל הזכויות שמורות
+              </span>
             </div>
           </footer>
         </main>
