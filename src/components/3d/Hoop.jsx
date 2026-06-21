@@ -50,20 +50,20 @@ export default function Hoop({ position = [0, 3, -8], onScore }) {
 
       {/* Rim - using trimesh for torus physics */}
       <RigidBody type="fixed" colliders="trimesh" restitution={0.4} friction={0.5}>
-        <Torus args={[0.4, 0.03, 16, 32]} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.7]}>
+        <Torus args={[0.55, 0.03, 16, 32]} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0.7]}>
           <meshStandardMaterial color="#ff6b2b" emissive="#ff6b2b" emissiveIntensity={0.5} />
         </Torus>
       </RigidBody>
 
       {/* Net (Visual only) */}
-      <Cylinder args={[0.4, 0.3, 0.8, 16, 1, true]} position={[0, -0.4, 0.7]}>
+      <Cylinder args={[0.55, 0.4, 0.8, 16, 1, true]} position={[0, -0.4, 0.7]}>
         <meshStandardMaterial color="#ffffff" wireframe transparent opacity={0.5} />
       </Cylinder>
 
-      {/* Sensor for scoring (Invisible box below rim) */}
+      {/* Sensor for scoring (Tightly placed inside the net, below rim) */}
       <CuboidCollider 
-        args={[0.2, 0.1, 0.2]} 
-        position={[0, -0.3, 0.7]} 
+        args={[0.4, 0.1, 0.4]} 
+        position={[0, -0.4, 0.7]} 
         sensor 
         onIntersectionEnter={handleScore}
       />
