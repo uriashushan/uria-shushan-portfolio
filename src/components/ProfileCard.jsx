@@ -1,92 +1,71 @@
-import React, { useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import avatarImg from '../assets/image_0.png';
 
+function spawnConfettiDOM(x, y) {
+  const colors = ['#00f0ff', '#b84dff', '#ff6b2b', '#39ff14', '#ffd700', '#ff2d7b'];
+  for (let i = 0; i < 35; i++) {
+    const el = document.createElement('div');
+    el.className = 'confetti-piece';
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    el.style.background = colors[Math.floor(Math.random() * colors.length)];
+    el.style.transform = `rotate(${Math.random() * 360}deg)`;
+    el.style.setProperty('--dx', (Math.random() - 0.5) * 300 + 'px');
+    el.style.animationDuration = (1 + Math.random()) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2000);
+  }
+}
+
+const MILESTONES = [
+  { icon: '🎓', title: 'Tel-Hai College — Year 2', desc: 'Practical Software Engineering student. Building full-stack apps, APIs, and exploring Agentic AI.' },
+  { icon: '💻', title: 'Co-Founder: Galil Devs', desc: 'Running a web development agency in northern Israel, delivering real digital products to real clients.' },
+  { icon: '🛍️', title: 'Co-Founder: Perfume Trades', desc: 'Built an e-commerce platform from scratch for the fragrance community — React, Node, MongoDB.' },
+  { icon: '🛡️', title: 'HackerU SOC Analyst', desc: 'Certified in Security Operations — trained in threat detection, network monitoring, and incident response.' },
+  { icon: '🏫', title: 'Danziger Graduate (12 yrs)', desc: 'Strong academic foundations. High-energy problem solver who thrives under pressure.' },
+];
+
 export default function ProfileCard() {
-  const cardRef = useRef(null);
+  const [spinning, setSpinning] = useState(false);
 
-  const handleMouseMove = (e) => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((centerY - y) / centerY) * 10;
-    const rotateY = ((x - centerX) / centerX) * 10;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-    card.style.transition = 'none';
-  };
-
-  const handleMouseLeave = () => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-    card.style.transition = 'transform 0.6s ease';
-  };
+  const handleAvatarClick = useCallback((e) => {
+    if (spinning) return;
+    setSpinning(true);
+    // Confetti from click position
+    const rect = e.currentTarget.getBoundingClientRect();
+    spawnConfettiDOM(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    setTimeout(() => setSpinning(false), 1800);
+  }, [spinning]);
 
   return (
-    <div 
-      ref={cardRef}
-      className="glass-panel profile-card float-2"
-      data-node="profile"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ overflow: 'visible' }}
-    >
-      <div className="profile-glow-ring"></div>
-      
-      <div className="profile-avatar-container">
-        <img 
-          src={avatarImg} 
-          alt="Uria Shushan Full Body Avatar" 
-          className="profile-avatar"
-        />
-      </div>
+    <div className="profile-card-wrap" id="profile-card-container">
+      <div className="profile-card glass">
+        <div className="profile-glow"></div>
 
-      <h3 className="profile-header">URIA SHUSHAN | PRACTICAL SOFTWARE ENGINEER & FOUNDER</h3>
-      <h1 className="profile-name">Uria Shushan</h1>
-      <p className="profile-tagline">Galil Devs & Perfume Trades Founder</p>
-
-      <div className="profile-divider"></div>
-
-      {/* Main Biography Milestones - High contrast, legible and organized */}
-      <div className="milestones-list">
-        <div className="milestone-card">
-          <div className="milestone-badge">🎓</div>
-          <div className="milestone-info">
-            <h4 className="milestone-title">Tel-Hai College (Year 2)</h4>
-            <p className="milestone-desc">Practical Software Engineering Student, focusing on backend architectures, data management, and Agentic AI applications.</p>
-          </div>
+        <div className="avatar-container">
+          <img
+            src={avatarImg}
+            alt="Uria Shushan"
+            className={`avatar-img ${spinning ? 'spinning' : ''}`}
+            onClick={handleAvatarClick}
+            title="Click me! 👀"
+          />
         </div>
 
-        <div className="milestone-card">
-          <div className="milestone-badge">💻</div>
-          <div className="milestone-info">
-            <h4 className="milestone-title">Galil Devs & Perfume Trades</h4>
-            <p className="milestone-desc">Co-Founder and Lead Developer. Powering digital products, customized web solutions, and fragrance e-commerce platforms.</p>
-          </div>
-        </div>
+        <h1 className="profile-name">Uria Shushan</h1>
+        <p className="profile-role">Practical Software Engineer & Founder</p>
+        <p className="profile-tagline">22 · Tel-Hai College · Galil Devs · Perfume Trades</p>
 
-        <div className="milestone-card">
-          <div className="milestone-badge">🛡️</div>
-          <div className="milestone-info">
-            <h4 className="milestone-title">HackerU Certified SOC Analyst</h4>
-            <p className="milestone-desc">Security Operations Center specialist. Trained in threat mitigation, packet inspection, and monitoring networks.</p>
-          </div>
-        </div>
-
-        <div className="milestone-card">
-          <div className="milestone-badge">🏫</div>
-          <div className="milestone-info">
-            <h4 className="milestone-title">Danziger School Graduate</h4>
-            <p className="milestone-desc">Completed 12 years of core study. High-energy, creating innovative software systems and resolving complex programming challenges.</p>
-          </div>
+        <div className="milestones">
+          {MILESTONES.map((m, i) => (
+            <div className="milestone" key={i}>
+              <div className="milestone-icon">{m.icon}</div>
+              <div>
+                <h4>{m.title}</h4>
+                <p>{m.desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
